@@ -5,11 +5,6 @@ import { Fade } from "react-reveal";
 import { style } from "glamor";
 
 export default function ProjectCard({ repo, theme }) {
-  function openRepoinNewTab(url) {
-    var win = window.open(url, "_blank");
-    win.focus();
-  }
-
   const styles = style({
     color: "rgb(88, 96, 105)",
     backgroundColor: "rgb(255, 255, 255)",
@@ -30,15 +25,28 @@ export default function ProjectCard({ repo, theme }) {
         <div
           {...styles}
           key={repo.id}
-          onClick={() => openRepoinNewTab(repo.url)}
           style={{ backgroundColor: theme.projectCard }}
         >
           <div className="repo-name-div">
-            <p className="repo-name" style={{ color: theme.text }}>
+            <p
+              className="repo-name"
+              style={{ color: theme.text, marginBottom: "20px" }}
+            >
               {repo.name}
             </p>
           </div>
-          <p className="repo-description" style={{ color: theme.text }}>
+          <div style={{ width: "100%" }}>
+            <img
+              style={{ width: "100%", height: "100%" }}
+              className="logo_img"
+              src={require(`../../assests/images/${repo.img}`)}
+              alt={repo.alt_name}
+            />
+          </div>
+          <p
+            className="repo-description"
+            style={{ color: theme.text, marginTop: "15px" }}
+          >
             {repo.description}
           </p>
           <div className="repo-details">
