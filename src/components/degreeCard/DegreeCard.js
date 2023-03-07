@@ -6,6 +6,7 @@ import { style } from "glamor";
 function DegreeCard(props) {
   const degree = props.degree;
   const theme = props.theme;
+  const language = localStorage.getItem("language");
 
   const style_img = style({
     width: "220px",
@@ -90,26 +91,34 @@ function DegreeCard(props) {
           >
             <div className="body-header-title">
               <h2 className="card-title" style={{ color: "#FFFFFF" }}>
-                {degree.title}
+                {language === "fr" ? degree.titleFr : degree.title}
               </h2>
               <h3 className="card-subtitle" style={{ color: "#FFFFFF" }}>
-                {degree.subtitle}
+                {language === "fr" ? degree.subtitleFr : degree.subtitle}
               </h3>
             </div>
             <div className="body-header-duration">
               <h3 className="duration" style={{ color: "#FFFFFF" }}>
-                {degree.duration}
+                {language === "fr" ? degree.durationFr : degree.duration}
               </h3>
             </div>
           </div>
           <div classname="body-content">
-            {degree.descriptions.map((sentence) => {
-              return (
-                <p className="content-list" style={{ color: theme.text }}>
-                  {sentence}
-                </p>
-              );
-            })}
+            {language === "fr"
+              ? degree.descriptionsFr.map((sentence) => {
+                  return (
+                    <p className="content-list" style={{ color: theme.text }}>
+                      {sentence}
+                    </p>
+                  );
+                })
+              : degree.descriptions.map((sentence) => {
+                  return (
+                    <p className="content-list" style={{ color: theme.text }}>
+                      {sentence}
+                    </p>
+                  );
+                })}
             <a
               href={degree.website_link}
               target="_blank"
@@ -125,7 +134,7 @@ function DegreeCard(props) {
                   backgroundColor: theme.accentColor,
                 }}
               >
-                Visit Website
+                {language === "fr" ? "Visiter le site" : "Visit Website"}
               </p>
             </a>
           </div>

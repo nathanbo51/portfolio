@@ -5,6 +5,8 @@ import { NavLink, Link } from "react-router-dom";
 import { greeting, settings } from "../../portfolio.js";
 import { CgSun } from "react-icons/cg/";
 import { HiMoon } from "react-icons/hi";
+import { GiFrance } from "react-icons/gi";
+import { BiWorld } from "react-icons/bi";
 import { style } from "glamor";
 
 function Header(props) {
@@ -34,6 +36,7 @@ function Header(props) {
   const link = settings.isSplash ? "/splash" : "home";
 
   const [currTheme, setCurrTheme] = useState(props.theme);
+  const [currLang, setCurrLang] = useState(props.language);
 
   function changeTheme() {
     if (currTheme === "light") {
@@ -47,7 +50,34 @@ function Header(props) {
     }
   }
 
-  const icon =
+  function changeLanguage() {
+    if (currLang === "fr") {
+      props.setLanguage("en");
+      localStorage.setItem("language", "en");
+      setCurrLang("en");
+    } else {
+      props.setLanguage("fr");
+      localStorage.setItem("language", "fr");
+      setCurrLang("fr");
+    }
+  }
+
+  const languageIcon =
+    props.language === "en" ? (
+      <BiWorld
+        strokeWidth={1}
+        size={20}
+        color={props.theme.name === "light" ? "#F9D784" : "#A7A7A7"}
+      />
+    ) : (
+      <GiFrance
+        strokeWidth={1}
+        size={20}
+        color={props.theme.name === "light" ? "#F9D784" : "#A7A7A7"}
+      />
+    );
+
+  const themeIcon =
     props.theme.name === "dark" ? (
       <HiMoon
         strokeWidth={1}
@@ -86,7 +116,7 @@ function Header(props) {
                 activeStyle={{ fontWeight: "bold" }}
                 style={{ borderRadius: 5, color: theme.text }}
               >
-                Home
+                {currLang === "fr" ? "Acceuil" : "Home"}
               </NavLink>
             </li>
             <li>
@@ -97,7 +127,9 @@ function Header(props) {
                 activeStyle={{ fontWeight: "bold" }}
                 style={{ borderRadius: 5, color: theme.text }}
               >
-                Education and Certifications
+                {currLang === "fr"
+                  ? "Études et Certifications"
+                  : "Education and Certifications"}
               </NavLink>
             </li>
             <li>
@@ -108,7 +140,7 @@ function Header(props) {
                 activeStyle={{ fontWeight: "bold" }}
                 style={{ borderRadius: 5, color: theme.text }}
               >
-                Experience
+                {currLang === "fr" ? "Expériences" : "Experiences"}
               </NavLink>
             </li>
             <li>
@@ -119,7 +151,7 @@ function Header(props) {
                 activeStyle={{ fontWeight: "bold" }}
                 style={{ borderRadius: 5, color: theme.text }}
               >
-                Projects
+                {currLang === "fr" ? "Projets" : "Projects"}
               </NavLink>
             </li>
             <li>
@@ -130,12 +162,17 @@ function Header(props) {
                 activeStyle={{ fontWeight: "bold" }}
                 style={{ borderRadius: 5, color: theme.text }}
               >
-                Contact and Resume
+                {currLang === "fr" ? "Contact et CV" : "Contact and Resume"}
               </NavLink>
             </li>
-            <button {...styles} onClick={changeTheme}>
-              {icon}
-            </button>
+            <li>
+              <button {...styles} onClick={changeTheme}>
+                {themeIcon}
+              </button>
+              <button {...styles} onClick={changeLanguage}>
+                {languageIcon}
+              </button>
+            </li>
           </ul>
         </header>
       </div>

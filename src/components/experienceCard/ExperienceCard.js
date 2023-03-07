@@ -4,6 +4,7 @@ import "./ExperienceCard.css";
 function ExperienceCard(props) {
   const experience = props.experience;
   const theme = props.theme;
+  const language = localStorage.getItem("language");
   return (
     <div
       className="experience-card"
@@ -23,7 +24,7 @@ function ExperienceCard(props) {
         <div className="experience-card-header-div">
           <div className="experience-card-heading-left">
             <h3 className="experience-card-title" style={{ color: theme.text }}>
-              {experience["title"]}
+              {language === "fr" ? experience["titleFr"] : experience["title"]}
             </h3>
             <p
               className="experience-card-company"
@@ -43,13 +44,17 @@ function ExperienceCard(props) {
               className="experience-card-duration"
               style={{ color: theme.secondaryText }}
             >
-              {experience["duration"]}
+              {language === "fr"
+                ? experience["durationFr"]
+                : experience["duration"]}
             </p>
             <p
               className="experience-card-location"
               style={{ color: theme.secondaryText }}
             >
-              {experience["location"]}
+              {language === "fr"
+                ? experience["locationFr"]
+                : experience["location"]}
             </p>
           </div>
         </div>
@@ -57,7 +62,9 @@ function ExperienceCard(props) {
           className="experience-card-description"
           style={{ color: theme.text }}
         >
-          {experience["description"]}
+          {language === "fr"
+            ? experience["descriptionFr"]
+            : experience["description"]}
         </p>
       </div>
     </div>

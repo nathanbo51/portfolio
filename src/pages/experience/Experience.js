@@ -9,10 +9,15 @@ import ExperienceImg from "./ExperienceImg";
 
 function Experience(props) {
   const theme = props.theme;
-  console.log(props.setTheme);
+  const language = localStorage.getItem("language");
   return (
     <div className="experience-main">
-      <Header theme={theme} setTheme={props.setTheme} />
+      <Header
+        theme={props.theme}
+        setTheme={props.setTheme}
+        language={props.language}
+        setLanguage={props.setLanguage}
+      />
       <div className="basic-experience">
         <Fade bottom duration={2000} distance="40px">
           <div className="experience-heading-div">
@@ -24,19 +29,23 @@ function Experience(props) {
                 className="experience-heading-text"
                 style={{ color: theme.text }}
               >
-                {experience.title}
+                {language === "fr" ? experience.titleFr : experience.title}
               </h1>
               <h3
                 className="experience-heading-sub-text"
                 style={{ color: theme.text }}
               >
-                {experience["subtitle"]}
+                {language === "fr"
+                  ? experience.subtitleFr
+                  : experience.subtitle}
               </h3>
               <p
                 className="experience-header-detail-text subTitle"
                 style={{ color: theme.secondaryText }}
               >
-                {experience["description"]}
+                {language === "fr"
+                  ? experience.descriptionFr
+                  : experience.description}
               </p>
             </div>
           </div>

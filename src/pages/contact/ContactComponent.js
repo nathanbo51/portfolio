@@ -5,7 +5,7 @@ import SocialMedia from "../../components/socialMedia/SocialMedia";
 import BlogsImg from "./BlogsImg";
 import { Fade } from "react-reveal";
 import "./ContactComponent.css";
-import { greeting, contactPageData } from "../../portfolio.js";
+import { greeting, greetingFr, contactPageData } from "../../portfolio.js";
 import { style } from "glamor";
 
 const ContactData = contactPageData.contactSection;
@@ -13,6 +13,7 @@ const blogSection = contactPageData.blogSection;
 
 function Contact(props) {
   const theme = props.theme;
+  const language = localStorage.getItem("language");
 
   const styles = style({
     backgroundColor: `${theme.accentBright}`,
@@ -23,7 +24,12 @@ function Contact(props) {
 
   return (
     <div className="contact-main">
-      <Header theme={theme} setTheme={props.setTheme} />
+      <Header
+        theme={props.theme}
+        setTheme={props.setTheme}
+        language={props.language}
+        setLanguage={props.setLanguage}
+      />
       <div className="basic-contact">
         <Fade bottom duration={1000} distance="40px">
           <div className="contact-heading-div">
@@ -39,19 +45,31 @@ function Contact(props) {
                 className="contact-heading-text"
                 style={{ color: theme.text }}
               >
-                {ContactData["title"]}
+                {language === "fr"
+                  ? ContactData["titleFr"]
+                  : ContactData["title"]}
               </h1>
               <p
                 className="contact-header-detail-text subTitle"
                 style={{ color: theme.secondaryText }}
               >
-                {ContactData["description"]}
+                {language === "fr"
+                  ? ContactData["descriptionFr"]
+                  : ContactData["description"]}
               </p>
               <SocialMedia />
               <br />
               <br />
-              <a {...styles} className="general-btn" href={greeting.resumeLink}>
-                See my Resume
+              <a
+                {...styles}
+                className="general-btn"
+                href={
+                  language === "fr"
+                    ? greetingFr.resumeLink
+                    : greeting.resumeLink
+                }
+              >
+                {language === "fr" ? "Voir mon CV" : "See my Resume"}
               </a>
             </div>
           </div>
@@ -66,11 +84,15 @@ function Contact(props) {
                 className="blog-header-detail-text subTitle"
                 style={{ color: theme.secondaryText }}
               >
-                {blogSection["subtitle"]}
+                {language === "fr"
+                  ? blogSection["subtitleFr"]
+                  : blogSection["subtitle"]}
               </p>
               <div className="blogsite-btn-div">
                 <a {...styles} className="general-btn" href={blogSection.link}>
-                  My LinkedIn Profile
+                  {language === "fr"
+                    ? "Mon profil LinkedIn"
+                    : "My LinkedIn Profile"}
                 </a>
               </div>
             </div>

@@ -6,6 +6,7 @@ import { DarkTheme, LightTheme, ThemeProvider } from "baseui";
 
 function ExperienceAccordion(props) {
   const theme = props.theme;
+  const language = localStorage.getItem("language");
 
   return (
     <div className="experience-accord">
@@ -15,8 +16,10 @@ function ExperienceAccordion(props) {
             return (
               <Panel
                 className="accord-panel"
-                title={section["title"]}
-                key={section["title"]}
+                title={
+                  language === "fr" ? section["titleFr"] : section["title"]
+                }
+                key={language === "fr" ? section["titleFr"] : section["title"]}
               >
                 {section["experiences"].map((experience) => {
                   return (

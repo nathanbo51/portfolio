@@ -17,6 +17,7 @@ function GetSkillSvg(props) {
 
 function SkillSection(props) {
   const theme = props.theme;
+  const language = localStorage.getItem("language");
   return (
     <div>
       {skills.data.map((skill, index) => {
@@ -32,7 +33,7 @@ function SkillSection(props) {
               <div className="skills-text-div">
                 <Fade right duration={1000}>
                   <h1 className="skills-heading" style={{ color: theme.text }}>
-                    {skill.title}
+                    {language === "fr" ? skill.titleFr : skill.title}
                   </h1>
                 </Fade>
                 <Fade right duration={1500}>
@@ -40,16 +41,27 @@ function SkillSection(props) {
                 </Fade>
                 <Fade right duration={2000}>
                   <div>
-                    {skill.skills.map((skillSentence) => {
-                      return (
-                        <p
-                          className="subTitle skills-text"
-                          style={{ color: theme.secondaryText }}
-                        >
-                          {skillSentence}
-                        </p>
-                      );
-                    })}
+                    {language === "fr"
+                      ? skill.skillsFr.map((skillSentence) => {
+                          return (
+                            <p
+                              className="subTitle skills-text"
+                              style={{ color: theme.secondaryText }}
+                            >
+                              {skillSentence}
+                            </p>
+                          );
+                        })
+                      : skill.skills.map((skillSentence) => {
+                          return (
+                            <p
+                              className="subTitle skills-text"
+                              style={{ color: theme.secondaryText }}
+                            >
+                              {skillSentence}
+                            </p>
+                          );
+                        })}
                   </div>
                 </Fade>
               </div>

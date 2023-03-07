@@ -22,6 +22,8 @@ export default function Main(propss) {
                   {...props}
                   theme={propss.theme}
                   setTheme={propss.setTheme}
+                  language={propss.language}
+                  setLanguage={propss.setLanguage}
                 />
               )}
             />
@@ -32,6 +34,8 @@ export default function Main(propss) {
                   {...props}
                   theme={propss.theme}
                   setTheme={propss.setTheme}
+                  language={propss.language}
+                  setLanguage={propss.setLanguage}
                 />
               )}
             />
@@ -43,6 +47,8 @@ export default function Main(propss) {
                   {...props}
                   theme={propss.theme}
                   setTheme={propss.setTheme}
+                  language={propss.language}
+                  setLanguage={propss.setLanguage}
                 />
               )}
             />
@@ -53,6 +59,8 @@ export default function Main(propss) {
                   {...props}
                   theme={propss.theme}
                   setTheme={propss.setTheme}
+                  language={propss.language}
+                  setLanguage={propss.setLanguage}
                 />
               )}
             />
@@ -63,6 +71,8 @@ export default function Main(propss) {
                   {...props}
                   theme={propss.theme}
                   setTheme={propss.setTheme}
+                  language={propss.language}
+                  setLanguage={propss.setLanguage}
                 />
               )}
             />
@@ -73,6 +83,8 @@ export default function Main(propss) {
                   {...props}
                   theme={propss.theme}
                   setTheme={propss.setTheme}
+                  language={propss.language}
+                  setLanguage={propss.setLanguage}
                 />
               )}
             />
@@ -83,6 +95,8 @@ export default function Main(propss) {
                   {...props}
                   theme={propss.theme}
                   setTheme={propss.setTheme}
+                  language={propss.language}
+                  setLanguage={propss.setLanguage}
                 />
               )}
             />
@@ -103,6 +117,8 @@ export default function Main(propss) {
                   {...props}
                   theme={propss.theme}
                   setTheme={propss.setTheme}
+                  language={propss.language}
+                  setLanguage={propss.setLanguage}
                 />
               )}
             />
@@ -113,6 +129,8 @@ export default function Main(propss) {
                   {...props}
                   theme={propss.theme}
                   setTheme={propss.setTheme}
+                  language={propss.language}
+                  setLanguage={propss.setLanguage}
                 />
               )}
             />
@@ -124,6 +142,8 @@ export default function Main(propss) {
                   {...props}
                   theme={propss.theme}
                   setTheme={propss.setTheme}
+                  language={propss.language}
+                  setLanguage={propss.setLanguage}
                 />
               )}
             />
@@ -134,6 +154,8 @@ export default function Main(propss) {
                   {...props}
                   theme={propss.theme}
                   setTheme={propss.setTheme}
+                  language={propss.language}
+                  setLanguage={propss.setLanguage}
                 />
               )}
             />
@@ -144,6 +166,8 @@ export default function Main(propss) {
                   {...props}
                   theme={propss.theme}
                   setTheme={propss.setTheme}
+                  language={propss.language}
+                  setLanguage={propss.setLanguage}
                 />
               )}
             />
@@ -154,6 +178,8 @@ export default function Main(propss) {
                   {...props}
                   theme={propss.theme}
                   setTheme={propss.setTheme}
+                  language={propss.language}
+                  setLanguage={propss.setLanguage}
                 />
               )}
             />

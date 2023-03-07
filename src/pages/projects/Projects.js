@@ -10,6 +10,7 @@ import { style } from "glamor";
 
 function Projects(props) {
   const theme = props.theme;
+  const language = localStorage.getItem("language");
 
   const styles = style({
     backgroundColor: `${theme.accentBright}`,
@@ -20,7 +21,12 @@ function Projects(props) {
 
   return (
     <div className="projects-main">
-      <Header theme={theme} setTheme={props.setTheme} />
+      <Header
+        theme={props.theme}
+        setTheme={props.setTheme}
+        language={props.language}
+        setLanguage={props.setLanguage}
+      />
       <div className="basic-projects">
         <Fade bottom duration={2000} distance="40px">
           <div className="projects-heading-div">
@@ -32,13 +38,17 @@ function Projects(props) {
                 className="projects-heading-text"
                 style={{ color: theme.text }}
               >
-                {projectsHeader.title}
+                {language === "fr"
+                  ? projectsHeader.titleFr
+                  : projectsHeader.title}
               </h1>
               <p
                 className="projects-header-detail-text subTitle"
                 style={{ color: theme.secondaryText }}
               >
-                {projectsHeader["description"]}
+                {language === "fr"
+                  ? projectsHeader.descriptionFr
+                  : projectsHeader.description}
               </p>
             </div>
           </div>
@@ -57,7 +67,7 @@ function Projects(props) {
         className="general-btn"
         href="https://github.com/nathanbo51"
       >
-        More Projects
+        {language === "fr" ? "Plus de projets" : "More Projects"}
       </a>
       <br />
       <br />

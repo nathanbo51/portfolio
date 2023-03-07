@@ -9,9 +9,15 @@ import { Fade } from "react-reveal";
 
 function Education(props) {
   const theme = props.theme;
+  const language = localStorage.getItem("language");
   return (
     <div className="education-main">
-      <Header theme={props.theme} setTheme={props.setTheme} />
+      <Header
+        theme={props.theme}
+        setTheme={props.setTheme}
+        language={props.language}
+        setLanguage={props.setLanguage}
+      />
       <div className="basic-education">
         <Fade bottom duration={2000} distance="40px">
           <div className="heading-div">
@@ -20,17 +26,20 @@ function Education(props) {
             </div>
             <div className="heading-text-div">
               <h1 className="heading-text" style={{ color: theme.text }}>
-                Education
+                {language === "fr" ? "Études" : "Education"}
               </h1>
               <h3 className="heading-sub-text" style={{ color: theme.text }}>
-                Basic Qualification and Certifications
+                {language === "fr"
+                  ? "Qualifications et Certifications"
+                  : "Qualification and Certifications"}
               </h3>
               <p
                 className="experience-header-detail-text subTitle"
                 style={{ color: theme.secondaryText }}
               >
-                I actively participate in tech-related activities. Below are
-                some of my online trainings and certifications.
+                {language === "fr"
+                  ? "Je participe activement à des activités liées à la technologie. Ci-dessous, vous trouverez quelques-unes de mes formations en ligne et certifications."
+                  : "I actively participate in tech-related activities. Below are some of my online trainings and certifications."}
               </p>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Greeting.css";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
-import { greeting } from "../../portfolio";
+import { greeting, greetingFr } from "../../portfolio";
 import { Fade } from "react-reveal";
 import { useHistory } from "react-router-dom";
 import FeelingProud from "./FeelingProud";
@@ -9,6 +9,7 @@ import { style } from "glamor";
 
 export default function Greeting(props) {
   const theme = props.theme;
+  const language = localStorage.getItem("language");
   const history = useHistory();
 
   const styles = style({
@@ -24,16 +25,21 @@ export default function Greeting(props) {
         <div className="greeting-main">
           <div className="greeting-text-div">
             <div>
-              <h1 className="greeting-text">{greeting.title}</h1>
+              <h1 className="greeting-text">
+                {language === "fr" ? greetingFr.title : greeting.title}
+              </h1>
               <p
                 className="greeting-text-p subTitle"
                 style={{ color: theme.secondaryText }}
               >
-                <span>I'm </span>
+                <span>{language === "fr" ? "Je suis " : "I'm "}</span>
                 <span style={{ color: theme.accentColor }}>
-                  {greeting.full_name}.{" "}
+                  {language === "fr"
+                    ? greetingFr.full_name
+                    : greeting.full_name}
+                  .{" "}
                 </span>
-                {greeting.subTitle}
+                {language === "fr" ? greetingFr.subTitle : greeting.subTitle}
               </p>
               <SocialMedia />
               <div className="portfolio-repo-btn-div">
@@ -44,7 +50,7 @@ export default function Greeting(props) {
                     history.push("/contact");
                   }}
                 >
-                  Contact Me
+                  {language === "fr" ? "Me Contacter" : "Contact Me"}
                 </button>
               </div>
             </div>

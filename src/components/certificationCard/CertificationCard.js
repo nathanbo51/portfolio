@@ -6,6 +6,7 @@ import { style } from "glamor";
 function CertificationCard(props) {
   const certificate = props.certificate;
   const theme = props.theme;
+  const language = localStorage.getItem("language");
   const styles = style({
     boxShadow: `0px 2px 5px ${certificate.color_code}`,
     border: `1px solid ${certificate.color_code}`,
@@ -43,7 +44,7 @@ function CertificationCard(props) {
         </div>
         <div className="cert-body">
           <h2 className="cert-body-title" style={{ color: theme.text }}>
-            {certificate.title}
+            {language === "fr" ? certificate.titleFr : certificate.title}
           </h2>
           <h3
             className="cert-body-subtitle"

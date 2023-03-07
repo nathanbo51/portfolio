@@ -18,6 +18,7 @@ export default function ProjectCard({ repo, theme }) {
       boxShadow: `${theme.imageDark} 0 2px 15px`,
     },
   });
+  const language = localStorage.getItem("language");
 
   return (
     <div>
@@ -32,7 +33,7 @@ export default function ProjectCard({ repo, theme }) {
               className="repo-name"
               style={{ color: theme.text, marginBottom: "20px" }}
             >
-              {repo.name}
+              {language === "fr" ? repo.nameFr : repo.name}
             </p>
           </div>
           <div style={{ width: "100%" }}>
@@ -47,7 +48,7 @@ export default function ProjectCard({ repo, theme }) {
             className="repo-description"
             style={{ color: theme.text, marginTop: "15px" }}
           >
-            {repo.description}
+            {language === "fr" ? repo.descriptionFr : repo.description}
           </p>
           <div className="repo-details">
             <ProjectLanguages logos={repo.languages} />
