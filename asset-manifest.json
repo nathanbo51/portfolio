@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.4b80c8c3.css",
-    "main.js": "/portfolio/static/js/main.2fd7799d.js",
+    "main.js": "/portfolio/static/js/main.3cdd3e71.js",
     "static/media/3dprinter.png": "/portfolio/static/media/3dprinter.0b044bc386360e3c71c3.png",
     "static/media/localguide.gif": "/portfolio/static/media/localguide.e26297ddb1866fabed6a.gif",
     "static/media/packettracer.png": "/portfolio/static/media/packettracer.63bd0bc3b92d9e7ca2c8.png",
@@ -70,10 +70,10 @@
     "static/media/mlh-logo.svg": "/portfolio/static/media/mlh-logo.d48e27dc116c04b190de.svg",
     "index.html": "/portfolio/index.html",
     "main.4b80c8c3.css.map": "/portfolio/static/css/main.4b80c8c3.css.map",
-    "main.2fd7799d.js.map": "/portfolio/static/js/main.2fd7799d.js.map"
+    "main.3cdd3e71.js.map": "/portfolio/static/js/main.3cdd3e71.js.map"
   },
   "entrypoints": [
     "static/css/main.4b80c8c3.css",
-    "static/js/main.2fd7799d.js"
+    "static/js/main.3cdd3e71.js"
   ]
 }
